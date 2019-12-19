@@ -1,0 +1,803 @@
+@prefix : <https://w3id.org/bim4eeb/BMO#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix BMO: <https://w3id.org/bim4eeb/BMO#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/bim4eeb/BMO> .
+
+<https://w3id.org/bim4eeb/BMO> rdf:type owl:Ontology ;
+                                owl:versionIRI <https://w3id.org/bim4eeb/BMO/0.1> ;
+                                dc:license "<http://creativecommons.org/licenses/by/3.0/>"^^rdfs:Literal ;
+                                dct:contributor BMO:ID_JK_BIM4EEB ;
+                                dct:creator BMO:ID_PV_BIM4EEB ;
+                                dct:description "The Building Material Ontology defining the main concepts of building material, type and its properties. This ontology developed by taking advantage of Ontology Property Management (OPM) concepts."^^rdfs:Literal ;
+                                dct:issued "2019-12-10T16:00:00"^^xsd:dateTime ;
+                                dct:title "Building Material Ontology (BMO)"^^rdfs:Literal ;
+                                <http://purl.org/vocab/vann/preferredNamespacePrefix> "BMO"^^rdfs:Literal ;
+                                <http://purl.org/vocab/vann/preferredNamespaceUri> "<https://w3id.org/bim4eeb/BMO#>"^^rdfs:Literal ;
+                                owl:versionInfo "0.1"^^rdfs:Literal .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/license
+dc:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+dct:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dct:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dct:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dct:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dct:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dct:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/currentProject
+<http://xmlns.com/foaf/0.1/currentProject> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                           rdfs:range <http://xmlns.com/foaf/0.1/Project> .
+
+
+###  http://xmlns.com/foaf/0.1/fundedBy
+<http://xmlns.com/foaf/0.1/fundedBy> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain owl:Thing ;
+                                     rdfs:range owl:Thing .
+
+
+###  http://xmlns.com/foaf/0.1/holdsAccount
+<http://xmlns.com/foaf/0.1/holdsAccount> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                         rdfs:range <http://xmlns.com/foaf/0.1/OnlineChatAccount> .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasAcidityConcentration
+BMO:hasAcidityConcentration rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf opm:hasProperty ;
+                            rdfs:range BMO:MaterialChemicalProperty ;
+                            rdfs:comment "Maximum CaCO3 equivalent that would neutralize the acid."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasAlkalinityConcentration
+BMO:hasAlkalinityConcentration rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf opm:hasProperty ;
+                               rdfs:range BMO:MaterialChemicalProperty ;
+                               rdfs:comment "Maximum alkalinity concentration (maximum sum of concentrations of each of the negative ions substances measured as CaCO3)."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasBoilingPoint
+BMO:hasBoilingPoint rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf opm:hasProperty ;
+                    rdfs:domain BMO:Material ;
+                    rdfs:range BMO:MaterialThermalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasCO2Content
+BMO:hasCO2Content rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf opm:hasProperty ;
+                  rdfs:domain BMO:Material ;
+                  rdfs:range BMO:MaterialCombustionProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasCOContent
+BMO:hasCOContent rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf opm:hasProperty ;
+                 rdfs:domain BMO:Material ;
+                 rdfs:range BMO:MaterialCombustionProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasCarbonContent
+BMO:hasCarbonContent rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf opm:hasProperty ;
+                     rdfs:domain BMO:Material ;
+                     rdfs:range BMO:MaterialFuelProperty ;
+                     rdfs:comment "The carbon content in the fuel. This is measured in weight of carbon per unit weight of fuel and is therefore unitless. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasCombustionTemperature
+BMO:hasCombustionTemperature rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf opm:hasProperty ;
+                             rdfs:domain BMO:Material ;
+                             rdfs:range BMO:MaterialFuelProperty ;
+                             rdfs:comment "Combustion temperature of the material when air is at 298 K and 100 kPa. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasConstituents
+BMO:hasConstituents rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf opm:hasProperty ;
+                    rdfs:range BMO:Material .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasDynamicViscosity
+BMO:hasDynamicViscosity rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf opm:hasProperty ;
+                        rdfs:domain BMO:Material ;
+                        rdfs:range BMO:MaterialMechanicalProperty ;
+                        rdfs:comment "A measure of the viscous resistance of the material. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasFreezingPoint
+BMO:hasFreezingPoint rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf opm:hasProperty ;
+                     rdfs:domain BMO:Material ;
+                     rdfs:range BMO:MaterialThermalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasGasPressure
+BMO:hasGasPressure rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf opm:hasProperty ;
+                   rdfs:domain BMO:Material ;
+                   rdfs:range BMO:MaterialEnergyProperty ;
+                   rdfs:comment "Fill pressure (e.g. for between-pane gas fills): the pressure exerted by a mass of gas confined in a constant volume. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasHardness
+BMO:hasHardness rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf opm:hasProperty ;
+                rdfs:domain BMO:Material ;
+                rdfs:range BMO:MaterialChemicalProperty ;
+                rdfs:comment "Water hardness as positive, multivalent ion concentration in the water (usually concentrations of calcium and magnesium ions in terms of calcium carbonate)."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasHigherHeatingValue
+BMO:hasHigherHeatingValue rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf opm:hasProperty ;
+                          rdfs:domain BMO:Material ;
+                          rdfs:range BMO:MaterialFuelProperty ;
+                          rdfs:comment "Higher Heating Value is defined as the amount of energy released (MJ/kg) when a fuel is burned completely, and H2O is in liquid form in the combustion products. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasIsothermalMoistureCapacity
+BMO:hasIsothermalMoistureCapacity rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf opm:hasProperty ;
+                                  rdfs:domain BMO:Material ;
+                                  rdfs:range BMO:MaterialHygroscopicProperty ;
+                                  rdfs:comment "Based on water vapor density. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasLowerHeatingValue
+BMO:hasLowerHeatingValue rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf opm:hasProperty ;
+                         rdfs:domain BMO:Material ;
+                         rdfs:range BMO:MaterialFuelProperty ;
+                         rdfs:comment "Lower Heating Value is defined as the amount of energy released (MJ/kg) when a fuel is burned completely, and H2O is in vapor form in the combustion products. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasLowerVaporResistanceFactor
+BMO:hasLowerVaporResistanceFactor rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf opm:hasProperty ;
+                                  rdfs:domain BMO:Material ;
+                                  rdfs:range BMO:MaterialHygroscopicProperty ;
+                                  rdfs:comment "The vapor permeability relationship of air/material (typically value > 1), measured in low relative humidity (typically in 0/50 % RH). [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasMassDensity
+BMO:hasMassDensity rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf opm:hasProperty ;
+                   rdfs:domain BMO:Material ;
+                   rdfs:range BMO:MaterialPhysicalProperty ;
+                   rdfs:comment "Material mass density. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasMaterialName
+BMO:hasMaterialName rdf:type owl:ObjectProperty ;
+                    rdfs:domain BMO:Material ;
+                    rdfs:range BMO:MaterialType ;
+                    rdfs:comment "It will assign the material name(material type) to the material"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasMoistureCapacityThermalGradient
+BMO:hasMoistureCapacityThermalGradient rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf opm:hasProperty ;
+                                       rdfs:domain BMO:Material ;
+                                       rdfs:range BMO:MaterialEnergyProperty ;
+                                       rdfs:comment "Thermal gradient coefficient for moisture capacity. Based on water vapor density.[ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasMoistureDiffusivity
+BMO:hasMoistureDiffusivity rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf opm:hasProperty ;
+                           rdfs:domain BMO:Material ;
+                           rdfs:range BMO:MaterialHygroscopicProperty ;
+                           rdfs:comment """Moisture diffusivity is a transport property that is frequently used in the hygrothermal analysis of building envelope components.
+Moisture diffusivity is a transport property that is frequently used in the hygrothermal analysis of building envelope components. [ISO 16739-1:2018]"""^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasMolecularWeight
+BMO:hasMolecularWeight rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf opm:hasProperty ;
+                       rdfs:domain BMO:Material ;
+                       rdfs:range BMO:MaterialPhysicalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasN20Content
+BMO:hasN20Content rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf opm:hasProperty ;
+                  rdfs:domain BMO:Material ;
+                  rdfs:range BMO:MaterialCombustionProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasPHLevel
+BMO:hasPHLevel rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf opm:hasProperty ;
+               rdfs:domain BMO:Material ;
+               rdfs:range BMO:MaterialChemicalProperty ;
+               rdfs:comment "Maximum water PH in a range from 0-14."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasPoissonRatio
+BMO:hasPoissonRatio rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf opm:hasProperty ;
+                    rdfs:domain BMO:Material ;
+                    rdfs:range BMO:MaterialMechanicalProperty ;
+                    rdfs:comment "A measure of the lateral deformations in the elastic range. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasPorosity
+BMO:hasPorosity rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf opm:hasProperty ;
+                rdfs:domain BMO:Material ;
+                rdfs:range BMO:MaterialPhysicalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasShearModulus
+BMO:hasShearModulus rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf opm:hasProperty ;
+                    rdfs:domain BMO:Material ;
+                    rdfs:range BMO:MaterialMechanicalProperty ;
+                    rdfs:comment "A measure of the shear modulus of elasticity of the material. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasSolarReflectanceBack
+BMO:hasSolarReflectanceBack rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf opm:hasProperty ;
+                            rdfs:domain BMO:Material ;
+                            rdfs:range BMO:MaterialOpticalProperty ;
+                            rdfs:comment "Reflectance at normal incidence (solar): back side. Defines the fraction of the solar ray that is reflected and not transmitted when the ray passes from one medium into another, at the \"back\" side of the other material, perpendicular to the surface. Dependent on material and surface characteristics. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasSolarReflectanceFront
+BMO:hasSolarReflectanceFront rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf opm:hasProperty ;
+                             rdfs:domain BMO:Material ;
+                             rdfs:range BMO:MaterialOpticalProperty ;
+                             rdfs:comment "Reflectance at normal incidence (solar): front side. Defines the fraction of the solar ray that is reflected and not transmitted when the ray passes from one medium into another, at the \"front\" side of the other material, perpendicular to the surface. Dependent on material and surface characteristics.[ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasSolarRefractionIndex
+BMO:hasSolarRefractionIndex rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf opm:hasProperty ;
+                            rdfs:domain BMO:Material ;
+                            rdfs:range BMO:MaterialEnergyProperty ;
+                            rdfs:comment "Index of refraction (solar) defines the \"bending\" of the solar ray when it passes from one medium into another. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasSolarTransmittance
+BMO:hasSolarTransmittance rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf opm:hasProperty ;
+                          rdfs:domain BMO:Material ;
+                          rdfs:range BMO:MaterialOpticalProperty ;
+                          rdfs:comment "Transmittance at normal incidence (solar). Defines the fraction of solar radiation that passes through per unit area, perpendicular to the surface. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasSpecificHeatCapacity
+BMO:hasSpecificHeatCapacity rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf opm:hasProperty ;
+                            rdfs:domain BMO:Material ;
+                            rdfs:range BMO:MaterialThermalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasSpecificHeatTemperatureDerivative
+BMO:hasSpecificHeatTemperatureDerivative rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf opm:hasProperty ;
+                                         rdfs:domain BMO:Material ;
+                                         rdfs:range BMO:MaterialEnergyProperty ;
+                                         rdfs:comment "Specific heat temperature derivative. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalCapacity
+BMO:hasThermalCapacity rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf opm:hasProperty ;
+                       rdfs:range BMO:MaterialThermalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalConductivity
+BMO:hasThermalConductivity rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf opm:hasProperty ;
+                           rdfs:domain BMO:Material ;
+                           rdfs:range BMO:MaterialThermalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalConductivityTemperatureDerivative
+BMO:hasThermalConductivityTemperatureDerivative rdf:type owl:ObjectProperty ;
+                                                rdfs:subPropertyOf opm:hasProperty ;
+                                                rdfs:domain BMO:Material ;
+                                                rdfs:range BMO:MaterialEnergyProperty ;
+                                                rdfs:comment "Thermal conductivity temperature derivative. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalExpansionCoefficient
+BMO:hasThermalExpansionCoefficient rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf opm:hasProperty ;
+                                   rdfs:domain BMO:Material ;
+                                   rdfs:range BMO:MaterialMechanicalProperty ;
+                                   rdfs:comment "A measure of the expansion coefficient for warming up the material about one Kelvin. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalIrEmissivityBack
+BMO:hasThermalIrEmissivityBack rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf opm:hasProperty ;
+                               rdfs:domain BMO:Material ;
+                               rdfs:range BMO:MaterialOpticalProperty ;
+                               rdfs:comment "Thermal IR emissivity: back side. Defines the fraction of thermal energy emitted per unit area to \"blackbody\" at the same temperature, through the \"back\" side of the material. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalIrEmissivityFront
+BMO:hasThermalIrEmissivityFront rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf opm:hasProperty ;
+                                rdfs:domain BMO:Material ;
+                                rdfs:range BMO:MaterialOpticalProperty ;
+                                rdfs:comment "Thermal IR emissivity: front side. Defines the fraction of thermal energy emitted per unit area to \"blackbody\" at the same temperature, through the \"front\" side of the material.[ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalIrTransmittance
+BMO:hasThermalIrTransmittance rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf opm:hasProperty ;
+                              rdfs:domain BMO:Material ;
+                              rdfs:range BMO:MaterialOpticalProperty ;
+                              rdfs:comment "Thermal IR transmittance at normal incidence. Defines the fraction of thermal energy that passes through per unit area, perpendicular to the surface. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasThermalResistivity
+BMO:hasThermalResistivity rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf opm:hasProperty ;
+                          rdfs:range BMO:MaterialThermalProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasUnit
+BMO:hasUnit rdf:type owl:ObjectProperty ;
+            rdfs:domain opm:Property ;
+            rdfs:range qudt:Unit ;
+            owl:propertyDisjointWith opm:hasProperty ;
+            rdfs:comment "It is used to assign the unit to the property"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasUpperVaporResistanceFactor
+BMO:hasUpperVaporResistanceFactor rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf opm:hasProperty ;
+                                  rdfs:domain BMO:Material ;
+                                  rdfs:range BMO:MaterialHygroscopicProperty ;
+                                  rdfs:comment "The vapor permeability relationship of air/material (typically value > 1), measured in high relative humidity (typically in 95/50 % RH). [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasVaporPermeability
+BMO:hasVaporPermeability rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf opm:hasProperty ;
+                         rdfs:domain BMO:Material ;
+                         rdfs:range BMO:MaterialHygroscopicProperty ;
+                         rdfs:comment "The rate of water vapor transmission per unit area per unit of vapor pressure differential under test conditions. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasViscosityTemperatureDerivative
+BMO:hasViscosityTemperatureDerivative rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf opm:hasProperty ;
+                                      rdfs:domain BMO:Material ;
+                                      rdfs:range BMO:MaterialEnergyProperty ;
+                                      rdfs:comment "Viscosity temperature derivative. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasVisibleReflectanceBack
+BMO:hasVisibleReflectanceBack rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf opm:hasProperty ;
+                              rdfs:domain BMO:Material ;
+                              rdfs:range BMO:MaterialOpticalProperty ;
+                              rdfs:comment "Reflectance at normal incidence (visible): back side. Defines the fraction of the solar ray in the visible spectrum that is reflected and not transmitted when the ray passes from one medium into another, at the \"back\" side of the other material, perpendicular to the surface. Dependent on material and surface characteristics.[ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasVisibleReflectanceFront
+BMO:hasVisibleReflectanceFront rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf opm:hasProperty ;
+                               rdfs:domain BMO:Material ;
+                               rdfs:range BMO:MaterialOpticalProperty ;
+                               rdfs:comment "Reflectance at normal incidence (visible): front side. Defines the fraction of the solar ray in the visible spectrum that is reflected and not transmitted when the ray passes from one medium into another, at the \"front\" side of the other material, perpendicular to the surface. Dependent on material and surface characteristics.[ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasVisibleRefractionIndex
+BMO:hasVisibleRefractionIndex rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf opm:hasProperty ;
+                              rdfs:domain BMO:Material ;
+                              rdfs:range BMO:MaterialEnergyProperty ;
+                              rdfs:comment "Index of refraction (visible) defines the \"bending\" of the sola! r ray in the visible spectrum when it passes from one medium into another. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasVisibleTransmittance
+BMO:hasVisibleTransmittance rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf opm:hasProperty ;
+                            rdfs:domain BMO:Material ;
+                            rdfs:range BMO:MaterialOpticalProperty ;
+                            rdfs:comment "Transmittance at normal incidence (visible). Defines the fraction of the visible spectrum of solar radiation that passes through per unit area, perpendicular to the surface. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasYoungModulus
+BMO:hasYoungModulus rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf opm:hasProperty ;
+                    rdfs:domain BMO:Material ;
+                    rdfs:range BMO:MaterialMechanicalProperty ;
+                    rdfs:comment "A measure of the Young's modulus of elasticity of the material. [ISO 16739-1:2018]"^^xsd:string .
+
+
+###  https://w3id.org/opm#hasProperty
+opm:hasProperty rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/firstName
+<http://xmlns.com/foaf/0.1/firstName> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                      rdfs:range rdfs:Literal .
+
+
+###  http://xmlns.com/foaf/0.1/gender
+<http://xmlns.com/foaf/0.1/gender> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                   rdfs:range rdfs:Literal .
+
+
+###  http://xmlns.com/foaf/0.1/surname
+<http://xmlns.com/foaf/0.1/surname> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                    rdfs:range rdfs:Literal .
+
+
+###  http://xmlns.com/foaf/0.1/title
+<http://xmlns.com/foaf/0.1/title> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                  rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasDefinedValue
+BMO:hasDefinedValue rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf BMO:hasValue ;
+                    rdfs:domain opm:Property ;
+                    rdfs:range xsd:double ;
+                    rdfs:comment "Defined value is the standard value taken from the authenticated sources. For example, it is a value taken from the standards."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasEstimatedValue
+BMO:hasEstimatedValue rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf BMO:hasValue ;
+                      rdfs:domain opm:Property ;
+                      rdfs:range xsd:double ;
+                      rdfs:comment "Estimated value is the derived value or calculated value by using other property values"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasMeasuredValue
+BMO:hasMeasuredValue rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf BMO:hasValue ;
+                     rdfs:domain opm:Property ;
+                     rdfs:range xsd:double ;
+                     rdfs:comment "Measured Value is the resulted value from the measurement process"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasReference
+BMO:hasReference rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain opm:Property ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "hasRefrence: is used to represent the relation between property and the source from where it is taken."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#hasValue
+BMO:hasValue rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain opm:Property ;
+             rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://qudt.org/schema/qudt/Unit
+qudt:Unit rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Group
+<http://xmlns.com/foaf/0.1/Group> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> .
+
+
+###  http://xmlns.com/foaf/0.1/OnlineChatAccount
+<http://xmlns.com/foaf/0.1/OnlineChatAccount> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> .
+
+
+###  http://xmlns.com/foaf/0.1/Project
+<http://xmlns.com/foaf/0.1/Project> rdf:type owl:Class .
+
+
+###  https://w3id.org/bim4eeb/BMO#CompositeMaterial
+BMO:CompositeMaterial rdf:type owl:Class ;
+                      rdfs:subClassOf BMO:MaterialType .
+
+
+###  https://w3id.org/bim4eeb/BMO#InorganicNonMetallicMaterial
+BMO:InorganicNonMetallicMaterial rdf:type owl:Class ;
+                                 rdfs:subClassOf BMO:MaterialType .
+
+
+###  https://w3id.org/bim4eeb/BMO#Material
+BMO:Material rdf:type owl:Class ;
+             rdfs:comment "a homogeneous or inhomogeneous substance that can be used to form elements (physical products or their components). [ISO 16739]"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialChemicalProperty
+BMO:MaterialChemicalProperty rdf:type owl:Class ;
+                             rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialCombustionProperty
+BMO:MaterialCombustionProperty rdf:type owl:Class ;
+                               rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialEnergyProperty
+BMO:MaterialEnergyProperty rdf:type owl:Class ;
+                           rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialFuelProperty
+BMO:MaterialFuelProperty rdf:type owl:Class ;
+                         rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialHygroscopicProperty
+BMO:MaterialHygroscopicProperty rdf:type owl:Class ;
+                                rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialMechanicalProperty
+BMO:MaterialMechanicalProperty rdf:type owl:Class ;
+                               rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialOpticalProperty
+BMO:MaterialOpticalProperty rdf:type owl:Class ;
+                            rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialPhysicalProperty
+BMO:MaterialPhysicalProperty rdf:type owl:Class ;
+                             rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialProperty
+BMO:MaterialProperty rdf:type owl:Class ;
+                     rdfs:subClassOf opm:Property ;
+                     rdfs:comment "It is a characterstic of a material"^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialThermalProperty
+BMO:MaterialThermalProperty rdf:type owl:Class ;
+                            rdfs:subClassOf BMO:MaterialProperty .
+
+
+###  https://w3id.org/bim4eeb/BMO#MaterialType
+BMO:MaterialType rdf:type owl:Class ;
+                 rdfs:comment "It represents the different types of a material."^^xsd:string .
+
+
+###  https://w3id.org/bim4eeb/BMO#MetallicMaterial
+BMO:MetallicMaterial rdf:type owl:Class ;
+                     rdfs:subClassOf BMO:MaterialType .
+
+
+###  https://w3id.org/bim4eeb/BMO#OrganicaMaterial
+BMO:OrganicaMaterial rdf:type owl:Class ;
+                     rdfs:subClassOf BMO:MaterialType .
+
+
+###  https://w3id.org/opm#Property
+opm:Property rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/bim4eeb/BMO#Aluminium
+BMO:Aluminium rdf:type owl:NamedIndividual ,
+                       BMO:MetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#BIM4EEB
+BMO:BIM4EEB rdf:type owl:NamedIndividual ;
+            <http://xmlns.com/foaf/0.1/fundedBy> BMO:EuropeanUnion_Horizon2020 .
+
+
+###  https://w3id.org/bim4eeb/BMO#Bitumen
+BMO:Bitumen rdf:type owl:NamedIndividual ,
+                     BMO:InorganicNonMetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#CastIron
+BMO:CastIron rdf:type owl:NamedIndividual ,
+                      BMO:MetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#CementStone
+BMO:CementStone rdf:type owl:NamedIndividual ,
+                         BMO:OrganicaMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#Ceramic
+BMO:Ceramic rdf:type owl:NamedIndividual ,
+                     BMO:OrganicaMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#Concrete
+BMO:Concrete rdf:type owl:NamedIndividual ,
+                      BMO:CompositeMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#Copper
+BMO:Copper rdf:type owl:NamedIndividual ,
+                    BMO:MetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#EuropeanUnion_Horizon2020
+BMO:EuropeanUnion_Horizon2020 rdf:type owl:NamedIndividual ,
+                                       <http://xmlns.com/foaf/0.1/Organization> .
+
+
+###  https://w3id.org/bim4eeb/BMO#Glass
+BMO:Glass rdf:type owl:NamedIndividual ,
+                   BMO:OrganicaMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#ID_JK_BIM4EEB
+BMO:ID_JK_BIM4EEB rdf:type owl:NamedIndividual ;
+                  <http://xmlns.com/foaf/0.1/currentProject> BMO:BIM4EEB ;
+                  <http://xmlns.com/foaf/0.1/holdsAccount> <https://w3id.org/bim4eeb/BMO#janakiram.karlapudi@tu-dresden.de> ;
+                  <http://xmlns.com/foaf/0.1/firstName> "Janakiram"^^rdfs:Literal ;
+                  <http://xmlns.com/foaf/0.1/surname> "Karlapudi"^^rdfs:Literal ;
+                  <http://xmlns.com/foaf/0.1/title> "Mr."^^rdfs:Literal .
+
+
+###  https://w3id.org/bim4eeb/BMO#ID_PV_BIM4EEB
+BMO:ID_PV_BIM4EEB rdf:type owl:NamedIndividual ;
+                  <http://xmlns.com/foaf/0.1/currentProject> BMO:BIM4EEB ;
+                  <http://xmlns.com/foaf/0.1/holdsAccount> <https://w3id.org/bim4eeb/BMO#prathap.valluru@tu-dresden.de> ;
+                  <http://xmlns.com/foaf/0.1/firstName> "Prathap"^^rdfs:Literal ;
+                  <http://xmlns.com/foaf/0.1/surname> "Valluru"^^rdfs:Literal ;
+                  <http://xmlns.com/foaf/0.1/title> "Mr."^^rdfs:Literal .
+
+
+###  https://w3id.org/bim4eeb/BMO#Masonry
+BMO:Masonry rdf:type owl:NamedIndividual ,
+                     BMO:CompositeMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#Polymer
+BMO:Polymer rdf:type owl:NamedIndividual ,
+                     BMO:InorganicNonMetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#Steel
+BMO:Steel rdf:type owl:NamedIndividual ,
+                   BMO:MetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#Wood
+BMO:Wood rdf:type owl:NamedIndividual ,
+                  BMO:InorganicNonMetallicMaterial .
+
+
+###  https://w3id.org/bim4eeb/BMO#janakiram.karlapudi@tu-dresden.de
+<https://w3id.org/bim4eeb/BMO#janakiram.karlapudi@tu-dresden.de> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/bim4eeb/BMO#prathap.valluru@tu-dresden.de
+<https://w3id.org/bim4eeb/BMO#prathap.valluru@tu-dresden.de> rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( qudt:Unit
+                <http://xmlns.com/foaf/0.1/Agent>
+                <http://xmlns.com/foaf/0.1/OnlineChatAccount>
+                <http://xmlns.com/foaf/0.1/Project>
+                BMO:Material
+                BMO:MaterialType
+                opm:Property
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( BMO:CompositeMaterial
+                BMO:InorganicNonMetallicMaterial
+                BMO:MetallicMaterial
+                BMO:OrganicaMaterial
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( <http://xmlns.com/foaf/0.1/firstName>
+                <http://xmlns.com/foaf/0.1/gender>
+                <http://xmlns.com/foaf/0.1/surname>
+                <http://xmlns.com/foaf/0.1/title>
+                BMO:hasReference
+                BMO:hasValue
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( BMO:hasDefinedValue
+                BMO:hasEstimatedValue
+                BMO:hasMeasuredValue
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
